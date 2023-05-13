@@ -1,17 +1,11 @@
 # Starting this App
 
 ```bash
-# In a vagrant en you should create a folder in another path
-mkdir /home/vagrant/mysql
-cd /vagrant/data
-ln -s /home/vagrant/mysql .
-# Start the Flask app (Open localhost:5000/companies/)
-cd /vagrant
-docker-compose -f docker-compose-vagrant.yml up -d
+docker-compose up -d
 # Populate the DB
 
-docker-compose -f docker-compose-vagrant.yml run --rm -v ${PWD}:/opt/src -w /opt/src mysql-2 bash
+docker-compose run --rm -v ${PWD}:/opt/src -w /opt/src mysql bash
 
-mysql -ucompanies -h172.18.0.3 -p  # write exit
-mysql -ucompanies -h172.18.0.3 -p companies < ./db/creation.sql
+mysql -ucompanies -hmysql -p  # write exit
+mysql -ucompanies -hmysql -p companies < ./db/creation.sql
 ```
