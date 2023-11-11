@@ -23,9 +23,18 @@ CREATE TABLE IF NOT EXISTS `companies` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `lastname` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 INSERT INTO companies(name, description) VALUES('Company 1','My company');
 INSERT INTO companies(name, description) VALUES('Company 2','Another company');
+INSERT INTO users(name, lastname) VALUES('Lucas','Perez');
+INSERT INTO users(name, lastname) VALUES('Luisa','Giraldo');
