@@ -28,7 +28,10 @@ services:
         links:
             - mysql
     mysql:
-        image: docker.io/mariadb:10.1
+        build:
+            context: ./db
+            dockerfile: Dockerfile
+        image: afreydev/dbcompanies:latest
         ports:
             - 3306:3306
         volumes:
