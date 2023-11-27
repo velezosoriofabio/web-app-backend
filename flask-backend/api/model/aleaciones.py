@@ -2,11 +2,11 @@ import functools
 import db
 import pymysql
 
-def get_users():
+def get_aleaciones():
     con = db.get_connection()
     cursor = con.cursor(pymysql.cursors.DictCursor)
     try:
-        sql="SELECT * FROM users"
+        sql="SELECT * FROM aleaciones"
         cursor.execute(sql)
         ret = cursor.fetchall()
         print(ret)
@@ -14,23 +14,23 @@ def get_users():
     finally:
         con.close()
 
-def get_user(user_id):
+def get_aleacion(aleacion_id):
     con = db.get_connection() 
     cursor = con.cursor(pymysql.cursors.DictCursor)
     ret={}
     try:
-        sql="SELECT * FROM users WHERE id = {}".format(user_id)
+        sql="SELECT * FROM aleaciones WHERE id = {}".format(aleacion_id)
         cursor.execute(sql)
         ret = cursor.fetchone()
         return ret
     finally:
         con.close()
 
-def create_user(name, lastname):
+def create_aleacion(nombre_aleacion, simbolo_aleacion, descripcion_aleacion):
     con = db.get_connection()
     cursor = con.cursor()
     try:
-        sql="INSERT INTO users(name, lastname) VALUES('{}','{}')".format(name, lastname)
+        sql="INSERT INTO aleaciones(nombre_aleacion, simbolo_aleacion, descripcion_aleacion) VALUES('{}','{}','{}')".format(nombre_aleacion, simbolo_aleacion, descripcion_aleacion)
         print(sql)
         cursor.execute(sql)
         con.commit()
@@ -39,11 +39,11 @@ def create_user(name, lastname):
     finally:
         con.close()
 
-def update_user(name, lastname, user_id):
+def update_aleacion(nombre_aleacion, simbolo_aleacion, descripcion_aleacion, aleacion_id):
     con = db.get_connection()
     cursor = con.cursor()
     try:
-        sql="UPDATE users set name='{0}', lastname='{1}' WHERE id = {2}".format(name, lastname, user_id)
+        sql="UPDATE aleaciones set nombre_aleacion='{0}', simbolo_aleacion='{1}', descripcion_aleacion='{2}' WHERE id = {3}".format(nombre_aleacion, simbolo_aleacion, descripcion_aleacion, aleacion_id)
         print(sql)
         cursor.execute(sql)
         con.commit()
@@ -51,11 +51,11 @@ def update_user(name, lastname, user_id):
     finally:
         con.close()
 
-def delete_user(user_id):
+def delete_aleacion(aleacion_id):
     con = db.get_connection()
     cursor = con.cursor()
     try:
-        sql="DELETE FROM users WHERE id = {}".format(user_id)
+        sql="DELETE FROM aleaciones WHERE id = {}".format(aleacion_id)
         cursor.execute(sql)
         con.commit()
         return {"message":"OK"}
