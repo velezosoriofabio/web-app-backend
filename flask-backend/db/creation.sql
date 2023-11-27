@@ -14,7 +14,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Table `companies`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `companies` ;
+DROP TABLE IF EXISTS `materiales` ;
 
 CREATE TABLE IF NOT EXISTS `mydb`.`materiales` (
   `id_material` INT NOT NULL,
