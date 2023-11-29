@@ -23,11 +23,13 @@ def get(aleacion_id):
 
 @bp.route('/', methods=['POST'])
 def create():
+    
     data = request.get_json()
+    id_aleacion=data['id_aleaciones']
     nombre_aleacion = data['nombre_aleacion']
     simbolo_aleacion = data['simbolo_aleacion']
     descripcion_aleacion = data['descripcion_aleacion']
-    return jsonify(create_aleacion(nombre_aleacion, simbolo_aleacion, descripcion_aleacion))
+    return jsonify(create_aleacion(id_aleacion, nombre_aleacion, simbolo_aleacion, descripcion_aleacion))
 
 @bp.route('/<int:id_aleaciones>', methods=['PUT'])
 def update(aleacion_id):

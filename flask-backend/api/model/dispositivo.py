@@ -26,11 +26,11 @@ def get_dispositivos(dispositivos_id):
     finally:
         con.close()
 
-def create_dispositivos(nombre_dispositivo, descripcion_dispositivo, imagen_dispositivo):
+def create_dispositivos(id_dispositivo,nombre_dispositivo, descripcion_dispositivo, imagen_dispositivo):
     con = db.get_connection()
     cursor = con.cursor()
     try:
-        sql="INSERT INTO dispositivo(nombre_dispositivo, descripcion_dispositivo, imagen_dispositivo) VALUES('{}','{}','{}')".format(nombre_dispositivo, descripcion_dispositivo, imagen_dispositivo)
+        sql="INSERT INTO dispositivo (id_dispositivo,nombre_dispositivo, descripcion_dispositivo, imagen_dispositivo) VALUES('{}','{}','{}','{}')".format(id_dispositivo,nombre_dispositivo, descripcion_dispositivo, imagen_dispositivo)
         print(sql)
         cursor.execute(sql)
         con.commit()

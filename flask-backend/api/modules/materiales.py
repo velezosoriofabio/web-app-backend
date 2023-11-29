@@ -24,11 +24,12 @@ def get(material_id):
 @bp.route('/', methods=['POST'])
 def create():
     data = request.get_json()
+    id_material = data['id_material']
     nombre_material = data['nombre_material']
     simbolo_material = data['simbolo_material']
     categoria_material = data['categoria_material']
     descripcion_material = data['descripcion_material']
-    return jsonify(create_material(nombre_material, simbolo_material, categoria_material, descripcion_material))
+    return jsonify(create_material(id_material, nombre_material, simbolo_material, categoria_material, descripcion_material))
 
 @bp.route('/<int:id_material>', methods=['PUT'])
 def update(material_id):

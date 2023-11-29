@@ -26,11 +26,11 @@ def get_aleacion(aleacion_id):
     finally:
         con.close()
 
-def create_aleacion(nombre_aleacion, simbolo_aleacion, descripcion_aleacion):
+def create_aleacion(id_aleacion,nombre_aleacion, simbolo_aleacion, descripcion_aleacion):
     con = db.get_connection()
     cursor = con.cursor()
     try:
-        sql="INSERT INTO aleaciones(nombre_aleacion, simbolo_aleacion, descripcion_aleacion) VALUES('{}','{}','{}')".format(nombre_aleacion, simbolo_aleacion, descripcion_aleacion)
+        sql="INSERT INTO aleaciones(id_aleaciones,nombre_aleacion, simbolo_aleacion, descripcion_aleacion) VALUES('{}','{}','{}', '{}')".format(id_aleacion,nombre_aleacion, simbolo_aleacion, descripcion_aleacion)
         print(sql)
         cursor.execute(sql)
         con.commit()

@@ -24,10 +24,11 @@ def get(dispositivos_id):
 @bp.route('/', methods=['POST'])
 def create():
     data = request.get_json()
+    id_dispositivo = data['id_dispositivo']
     nombre_dispositivo = data['nombre_dispositivo']
     descripcion_dispositivo = data['descripcion_dispositivo']
     imagen_dispositivo = data['imagen_dispositivo']
-    return jsonify(create_dispositivos(nombre_dispositivo, descripcion_dispositivo, imagen_dispositivo))
+    return jsonify(create_dispositivos(id_dispositivo,nombre_dispositivo, descripcion_dispositivo, imagen_dispositivo))
 
 @bp.route('/<int:id_dispositivo>', methods=['PUT'])
 def update(dispositivos_id):

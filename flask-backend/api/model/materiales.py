@@ -26,11 +26,11 @@ def get_material(material_id):
     finally:
         con.close()
 
-def create_material(nombre_material, simbolo_material, categoria_material, descripcion_material):
+def create_material(id_material,nombre_material, simbolo_material, categoria_material, descripcion_material):
     con = db.get_connection()
     cursor = con.cursor()
     try:
-        sql="INSERT INTO materiales(nombre_material, simbolo_material, categoria_material, descripcion_material) VALUES('{}','{}','{}','{}')".format(nombre_material, simbolo_material, categoria_material, descripcion_material)
+        sql="INSERT INTO materiales (id_material,nombre_material, simbolo_material, categoria_material, descripcion_material) VALUES('{}','{}','{}','{}', '{}')".format(id_material,nombre_material, simbolo_material, categoria_material, descripcion_material)
         print(sql)
         cursor.execute(sql)
         con.commit()
