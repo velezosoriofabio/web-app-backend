@@ -19,7 +19,7 @@ def get_aleacion(aleacion_id):
     cursor = con.cursor(pymysql.cursors.DictCursor)
     ret={}
     try:
-        sql="SELECT * FROM aleaciones WHERE id = {}".format(aleacion_id)
+        sql="SELECT * FROM aleaciones WHERE id_aleaciones = {}".format(aleacion_id)
         cursor.execute(sql)
         ret = cursor.fetchone()
         return ret
@@ -43,7 +43,7 @@ def update_aleacion(nombre_aleacion, simbolo_aleacion, descripcion_aleacion, ale
     con = db.get_connection()
     cursor = con.cursor()
     try:
-        sql="UPDATE aleaciones set nombre_aleacion='{0}', simbolo_aleacion='{1}', descripcion_aleacion='{2}' WHERE id = {3}".format(nombre_aleacion, simbolo_aleacion, descripcion_aleacion, aleacion_id)
+        sql="UPDATE aleaciones set nombre_aleacion='{0}', simbolo_aleacion='{1}', descripcion_aleacion='{2}' WHERE id_aleaciones = {3}".format(nombre_aleacion, simbolo_aleacion, descripcion_aleacion, aleacion_id)
         print(sql)
         cursor.execute(sql)
         con.commit()
@@ -55,7 +55,7 @@ def delete_aleacion(aleacion_id):
     con = db.get_connection()
     cursor = con.cursor()
     try:
-        sql="DELETE FROM aleaciones WHERE id = {}".format(aleacion_id)
+        sql="DELETE FROM aleaciones WHERE id_aleaciones = {}".format(aleacion_id)
         cursor.execute(sql)
         con.commit()
         return {"message":"OK"}

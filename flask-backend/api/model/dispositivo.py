@@ -19,7 +19,7 @@ def get_dispositivos(dispositivos_id):
     cursor = con.cursor(pymysql.cursors.DictCursor)
     ret={}
     try:
-        sql="SELECT * FROM dispositivo WHERE id = {}".format(dispositivos_id)
+        sql="SELECT * FROM dispositivo WHERE id_dispositivo = {}".format(dispositivos_id)
         cursor.execute(sql)
         ret = cursor.fetchone()
         return ret
@@ -43,7 +43,7 @@ def update_dispositivos(nombre_dispositivo, descripcion_dispositivo, imagen_disp
     con = db.get_connection()
     cursor = con.cursor()
     try:
-        sql="UPDATE dispositivo set nombre_dispositivo='{0}', descripcion_dispositivo='{1}', imagen_dispositivo='{2}' WHERE id = {3}".format(nombre_dispositivo, descripcion_dispositivo, imagen_dispositivo, dispositivos_id)
+        sql="UPDATE dispositivo set nombre_dispositivo='{0}', descripcion_dispositivo='{1}', imagen_dispositivo='{2}' WHERE id_dispositivo = {3}".format(nombre_dispositivo, descripcion_dispositivo, imagen_dispositivo, dispositivos_id)
         print(sql)
         cursor.execute(sql)
         con.commit()
@@ -55,7 +55,7 @@ def delete_dispositivos(dispositivos_id):
     con = db.get_connection()
     cursor = con.cursor()
     try:
-        sql="DELETE FROM dispositivo WHERE id = {}".format(dispositivos_id)
+        sql="DELETE FROM dispositivo WHERE id_dispositivo = {}".format(dispositivos_id)
         cursor.execute(sql)
         con.commit()
         return {"message":"OK"}

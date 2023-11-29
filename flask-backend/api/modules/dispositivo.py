@@ -17,7 +17,7 @@ def list():
     retorno = get_dispositivo()
     return jsonify(retorno)
 
-@bp.route('/<int:dispositivos_id>', methods=['GET'])
+@bp.route('/<int:id_dispositivo>', methods=['GET'])
 def get(dispositivos_id):
     return jsonify(get_dispositivos(dispositivos_id))
 
@@ -29,7 +29,7 @@ def create():
     imagen_dispositivo = data['imagen_dispositivo']
     return jsonify(create_dispositivos(nombre_dispositivo, descripcion_dispositivo, imagen_dispositivo))
 
-@bp.route('/<int:dispositivos_id>', methods=['PUT'])
+@bp.route('/<int:id_dispositivo>', methods=['PUT'])
 def update(dispositivos_id):
     data = request.get_json()
     nombre_dispositivo = data['nombre_dispositivo']
@@ -37,6 +37,6 @@ def update(dispositivos_id):
     imagen_dispositivo = data['imagen_dispositivo']
     return jsonify(update_dispositivos(nombre_dispositivo, descripcion_dispositivo, imagen_dispositivo, dispositivos_id))
 
-@bp.route('/<int:dispositivos_id>', methods=['DELETE'])
+@bp.route('/<int:id_dispositivo>', methods=['DELETE'])
 def delete(dispositivos_id):
     return jsonify(delete_dispositivos(dispositivos_id))

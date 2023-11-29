@@ -17,7 +17,7 @@ def list():
     retorno = get_aleaciones()
     return jsonify(retorno)
 
-@bp.route('/<int:aleacion_id>', methods=['GET'])
+@bp.route('/<int:id_aleaciones>', methods=['GET'])
 def get(aleacion_id):
     return jsonify(get_aleacion(aleacion_id))
 
@@ -29,7 +29,7 @@ def create():
     descripcion_aleacion = data['descripcion_aleacion']
     return jsonify(create_aleacion(nombre_aleacion, simbolo_aleacion, descripcion_aleacion))
 
-@bp.route('/<int:aleacion_id>', methods=['PUT'])
+@bp.route('/<int:id_aleaciones>', methods=['PUT'])
 def update(aleacion_id):
     data = request.get_json()
     nombre_aleacion = data['nombre_aleacion']
@@ -37,6 +37,6 @@ def update(aleacion_id):
     descripcion_aleacion = data['descripcion_aleacion']
     return jsonify(update_aleacion(nombre_aleacion, simbolo_aleacion, descripcion_aleacion, aleacion_id))
 
-@bp.route('/<int:aleaciones_id>', methods=['DELETE'])
+@bp.route('/<int:id_aleaciones>', methods=['DELETE'])
 def delete(aleaciones_id):
     return jsonify(delete_aleacion(aleaciones_id))

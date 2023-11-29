@@ -17,7 +17,7 @@ def list():
     retorno = get_materiales()
     return jsonify(retorno)
 
-@bp.route('/<int:material_id>', methods=['GET'])
+@bp.route('/<int:id_material>', methods=['GET'])
 def get(material_id):
     return jsonify(get_material(material_id))
 
@@ -30,7 +30,7 @@ def create():
     descripcion_material = data['descripcion_material']
     return jsonify(create_material(nombre_material, simbolo_material, categoria_material, descripcion_material))
 
-@bp.route('/<int:material_id>', methods=['PUT'])
+@bp.route('/<int:id_material>', methods=['PUT'])
 def update(material_id):
     data = request.get_json()
     nombre_material = data['nombre_material']
@@ -39,6 +39,6 @@ def update(material_id):
     descripcion_material = data['descripcion_material']
     return jsonify(update_material(nombre_material, simbolo_material, categoria_material, descripcion_material, material_id))
 
-@bp.route('/<int:material_id>', methods=['DELETE'])
+@bp.route('/<int:id_material>', methods=['DELETE'])
 def delete(material_id):
     return jsonify(delete_material(material_id))
