@@ -10,13 +10,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema db_companies
 -- -----------------------------------------------------
-
+USE materiales;
 -- -----------------------------------------------------
 -- Table `companies`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `materiales` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`materiales` (
+CREATE TABLE IF NOT EXISTS `materiales` (
   `id_material` INT NOT NULL,
   `nombre_material` VARCHAR(45) NOT NULL,
   `simbolo_material` VARCHAR(45) NULL,
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`materiales` (
   PRIMARY KEY (`id_material`))
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`aleaciones` (
+CREATE TABLE IF NOT EXISTS `aleaciones` (
   `id_aleaciones` INT NOT NULL,
   `nombre_aleacion` VARCHAR(45) NOT NULL,
   `simbolo_aleacion` VARCHAR(45) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`aleaciones` (
   PRIMARY KEY (`id_aleaciones`))
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`dispositivo` (
+CREATE TABLE IF NOT EXISTS `dispositivo` (
   `id_dispositivo` INT NOT NULL,
   `nombre_dispositivo` VARCHAR(45) NOT NULL,
   `descripcion_dispositivo` VARCHAR(45) NULL,
