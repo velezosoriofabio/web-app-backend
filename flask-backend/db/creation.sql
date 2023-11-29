@@ -17,7 +17,7 @@ USE materiales;
 DROP TABLE IF EXISTS `materiales` ;
 
 CREATE TABLE IF NOT EXISTS `materiales` (
-  `id_material` INT NOT NULL,
+  `id_material` INT NOT NULL AUTO_INCREMENT,
   `nombre_material` VARCHAR(45) NOT NULL,
   `simbolo_material` VARCHAR(45) NULL,
   `categoria_material` VARCHAR(45) NULL,
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `materiales` (
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `aleaciones` (
-  `id_aleaciones` INT NOT NULL,
+  `id_aleaciones` INT NOT NULL AUTO_INCREMENT,
   `nombre_aleacion` VARCHAR(45) NOT NULL,
   `simbolo_aleacion` VARCHAR(45) NOT NULL,
   `descripcion_aleacion` VARCHAR(45) NULL,
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `aleaciones` (
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `dispositivo` (
-  `id_dispositivo` INT NOT NULL,
+  `id_dispositivo` INT NOT NULL AUTO_INCREMENT,
   `nombre_dispositivo` VARCHAR(45) NOT NULL,
   `descripcion_dispositivo` VARCHAR(45) NULL,
   `imagen_dispositivo` TEXT(255) NULL,
